@@ -7,6 +7,6 @@ const ctrl = require("./home.ctrl");
 
 router.get("/", ctrl.output.home);
 
-router.get("/search", ctrl.output.search);
+router.get("/search", ctrl.process.search);
 
 module.exports = router;

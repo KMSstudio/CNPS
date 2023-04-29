@@ -8,6 +8,9 @@ const output = {
         logger.info(`GET / ${req.socket.remoteAddress} / 200 move to home`);
         res.render("home/index");
     },
+};
+
+const process = {
     search: async(req, res) => {
         const url = req.url.slice(req.url.indexOf("?"))
         const params = new URLSearchParams(url);
@@ -27,11 +30,7 @@ const output = {
             res.render("home/fail", response);
             // res.redirect('/');
         }
-    }
-};
-
-const process = {
-    
+    },
 };
 
 module.exports = {
