@@ -77,19 +77,19 @@ class Post{
         this.company = company;
     }
 
-    #readFileCNPS(direcLoc) {
+    readFileCNPS(direcLoc) {
         try{
             const mdata = fs.readFileSync(direcLoc + '/medi.json');
             this.medi = JSON.parse(mdata);
             const hdata = fs.readFileSync(direcLoc + '/hist.json');
             this.hist = JSON.parse(hdata);
         }catch(err){
-            console.log(`error occur in Post.js > #readFileCNPS. err = ${err}`);
+            console.log(`error occur in Post.js > readFileCNPS. err = ${err}`);
             throw new Error('readFile');
         }
     }
 
-    #takeaim(inqValue) {
+    takeaim(inqValue) {
         try{
             const tempArr1 = [3, 0, 0, 0, 0, 1, 2]; // Should be improved
             const tempArr2 = ['주중', '금요일', '토요일', '일요일'];
@@ -127,12 +127,12 @@ class Post{
             }
             return {'keyStr': 'none'};
         }catch(err){
-            console.log(`error occur in Post.js > #takeaim. err = ${err}`);
+            console.log(`error occur in Post.js > takeaim. err = ${err}`);
             throw new Error('aimVal');
         }
     }
 
-    async #inquiry() {
+    async inquiry() {
         var inqValue;
         var direcLoc;
         var aimValue;
@@ -156,8 +156,8 @@ class Post{
         if (!inqValue.length) { return errList.INQUIRY_NULL_ERR; }
         
         try {
-            this.#readFileCNPS(direcLoc);
-            aimValue = this.#takeaim(inqValue);
+            this.readFileCNPS(direcLoc);
+            aimValue = this.takeaim(inqValue);
         } catch(err) { return errList.DB_READ_FAIL; }
         if (aimValue.keyStr == 'none') { return errList.DB_SRC_FAIL; }
 
@@ -206,7 +206,7 @@ class Post{
 
     async search() {
         var resInq, resPred, resHist;
-        resInq = await this.#inquiry();
+        resInq = await this.inquiry();
         if (!resInq.success){ return resInq; }
         resPred = await this.#predict(resInq.target);
         resHist = await this.#histogram(resInq.target);
