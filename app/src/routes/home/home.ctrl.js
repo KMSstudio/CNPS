@@ -5,7 +5,7 @@ const Post = require("../../models/Post");
 
 const output = {
     home: (req, res) => {
-        logger.info(`GET / 200 move to home`);
+        logger.info(`GET / ${req.socket.remoteAddress} / 200 move to home`);
         res.render("home/index");
     },
     search: async(req, res) => {
@@ -19,11 +19,11 @@ const output = {
         const response = await post.search();
         
         if (response.success){
-            logger.info(`GET / 200 search ${req.url} /success`);
+            logger.info(`GET / ${req.socket.remoteAddress} / 200 search ${req.url} /success`);
             res.render("home/search", response);
         }
         else{
-            logger.info(`GET / 200 ${req.url} / fail${response.msg}`);
+            logger.info(`GET / ${req.socket.remoteAddress} / 200 ${req.url} / fail${response.msg}`);
             res.render("home/fail", response);
             // res.redirect('/');
         }

@@ -13,7 +13,7 @@ function search(){
 
 window.onload = function() {
     const hist = histStr.split(',');
-    const bars = document.querySelectorAll(".con_bar");
+    const bars = document.querySelectorAll(".con-bar");
     for (var i = 0;i < bars.length;i++){
         const item = bars.item(i);
         item.style.height = `${parseInt(hist[i])/10}%`;

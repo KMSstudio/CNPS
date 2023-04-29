@@ -3,10 +3,8 @@
 //module
 const express = require("express");
 const bodyParser = require("body-parser");
-const dotenv = require("dotenv");
 
 const app = express();
-dotenv.config();
 
 //routing
 const home = require("./src/routes/home"); 
