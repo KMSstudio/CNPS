@@ -1,0 +1,273 @@
+*{margin:0;padding:0;font-family: sans-serif;}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    -moz-apperance: none;
+    -webkit-appearance: none;
+    margin:0;
+}
+
+::-moz-selection{
+    background: #fff;
+    color: #000;
+}
+::selection{
+    background: #fff;
+    color: #000;
+}
+input:focus{
+    outline: none;
+}
+
+#src{
+    width:100vw;
+    max-width: 100%;
+    height:40vh;
+
+    background-color: #fff;
+    position: relative;
+
+    font-size: 10px;
+}
+
+#search-bd{
+    display: inline-flex;
+    height: 10vh;
+
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+}
+#search-inp{
+    display: block;
+    height: 100%;
+}
+#search-2nd{
+    display: inline-flex;
+    height: 50%;
+}
+
+#search-image{
+    height : 10vh;
+    height : -webkit-calc(10vh + 5px); /* for Chrome, Safari */
+    height :    -moz-calc(10vh + 5px); /* for Firefox */
+    height :         calc(10vh + 5px); /* for IE */
+
+    margin-right: 5px;
+    margin-bottom: 5px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000;
+    box-sizing: border-box;
+}
+
+#number{
+    width : 40vw;
+    width : -webkit-calc(40vw + 5px); /* for Chrome, Safari */
+    width :    -moz-calc(40vw + 5px); /* for Firefox */
+    width :         calc(40vw + 5px); /* for IE */
+    height:50%;
+
+    background-color: #fff;
+    color: #000;
+
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000;
+    
+    font-size: 2.4em;
+    box-sizing: border-box;
+}
+
+#company{
+    width:30vw; height:100%;
+    background-color: #fff;
+    color: #000;
+
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000;
+    
+    font-size: 2.4em;
+    box-sizing: border-box;
+}
+
+#submit{
+    width: 10vw; height:100%;
+    background-color: #fff;
+    color: #000;
+    margin-right: 5px;
+    margin-bottom: 5px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000;
+    
+    font-size: 2.4em;
+    box-sizing: border-box;
+}
+#submit:hover{
+    background-color: #ff0;
+    color: #000;
+}
+
+#res{
+    width:100vw;
+    max-width: 100%;
+    overflow: auto;
+    height: fit-content;
+    min-height: 70vh;
+    
+    background-color:#000;
+
+    font-size: 21px;
+}
+
+.paragraph{
+    margin: 10vh auto 5vh;
+
+    background-color: #000;
+    color: #fff;
+}
+
+.con-title{
+    width: 50vw;
+    margin: 2% auto 1%;
+
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.con-line{
+    border: solid 1px #fff;
+    
+    width: 55vw;
+    margin: 0% auto;
+}
+
+.con-content{
+    width: 50vw;
+    margin: 2% auto 1%;
+
+    color: #fff;
+    font-size: 1em;
+}
+
+#inquiry-table{
+    width: 50vw;
+    margin: 2% auto 1%;
+
+    color: #fff;
+
+    border-collapse: collapse;
+}
+
+.con-scope{
+    font-size: 1em;
+    font-weight: bold;
+
+    padding: 5px 10px;
+    text-align: left;
+    color: #fff;
+}
+
+.con-table{
+    font-size: 1em;
+    font-weight: normal;
+
+    padding: 5px 10px;
+    text-align: left;
+    color: #fff;
+}
+
+#inquiry-hist{
+    display: flex;
+    height: 40vh;
+    width: 50vw;
+    margin: 2% auto 1%;
+    background-color: #000;
+
+    color: #fff;
+}
+
+.con-bar{
+    background-color: #000;
+    flex-grow: 1;
+
+    align-self: flex-end;
+    
+    border: solid 1px #fff;
+    background-color: #fff;
+}
+
+.con-axis{
+    display: flex;
+    height: auto;
+    width: 50vw;
+    margin: 0% auto 1%;
+    background-color: #000;
+
+    justify-content: space-between;
+
+    color: #fff;
+    font-size: 0.8em;
+}
+
+#sponsor-wrap{
+    height: auto;
+    width: 50vw;
+    background-color: #000;
+    margin: 2% auto 1%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.con-spon{
+    height: 20vh;
+    width: 15vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    cursor: pointer;
+
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #000;
+}
+.con-spon:hover{
+    background-color: #111;
+    color: #fff;
+}
+
+.con-spon p{
+    text-align: center;
+    margin: 5% auto;
+}
+
+#foot-image{
+    height : 3.2em;
+
+    margin-right: 1em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+    box-sizing: border-box;
+    
+    float:left
+}

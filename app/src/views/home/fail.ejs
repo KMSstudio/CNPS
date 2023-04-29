@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/home/style.css">
+    <link rel="icon" href="/img/favicon.ico">
+    <script src="/js/home/fail.js" defer ></script>
+    <title>CNPS</title>
+</head>
+<body>
+    <div id="src">
+        <div id="search-bd">
+            <a href="/"><img src="/img/CNPS-white.jpg" id="search-image"></a>
+            <div id="search-inp">
+                <input type="number" autocomplete="off" placeholder="운송장번호" name="number" id="number"><br>
+                <div id="search-2nd">
+                    <select name="company" id="company">
+                        <option value="none" selected hidden>택배사선택</option>
+                        <option value="po">우체국택배</option>
+                        <option value="cj">cj대한통운</option>
+                        <option value="lt">롯데택배</option>
+                        <option value="lg">로젠택배</option>
+                    </select>
+                    <button type="button" id="submit"><img src="/img/search.png" style="height:60%; margin:auto" alt="검색"></button>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /#src -->
+    <div id="res">
+        <p class="paragraph" id="status">
+            <h1 class="con-title"> 에러! </h1>
+            <hr class="con-line">
+            <p class="con-content">
+                <%=code%><br><%=msg%>
+            </p>
+        </p>
+        <p class="paragraph" id="predict">
+            <h1 class="con-title"> 솔루션: </h1>
+            <hr class="con-line">
+            <% for (var i=0;i<sol.length;i++) { %>
+                <p class="con-content"><%=sol[i]%></p>
+            <% } %>
+        </p>
+        <p class="paragraph" style="background-color: #ff0; width:50vw">
+            <hr class="con-line">
+            <div class="con-content">
+                <img src="/img/CNPS-black.jpg" id="foot-image">
+                <p class="con-content" style="font-size:0.8em;">
+                    Canopus, statistics-based delivery survice. <br>
+                    Made by Dongtanjoongang high school MS Kang.<br>
+                    E-mail 
+                </p>
+            </div>
+        </p>
+    </div>
+</body>
+</html>
