@@ -169,7 +169,7 @@ class Post{
         };
     }
 
-    async #predict(target) {
+    async predict(target) {
         const mediVal = this.medi[target['keyStr']];
         return {
             "p25": construct.f01(mediVal['25']), 
@@ -180,7 +180,7 @@ class Post{
         };
     }
 
-    async #histogram(target){
+    async historgram(target){
         const histVal = this.hist[target['keyStr']];
         var histArr = [];
         var spotArr = ['0h', '24h', '48h', '72h'];
@@ -208,8 +208,8 @@ class Post{
         var resInq, resPred, resHist;
         resInq = await this.inquiry();
         if (!resInq.success){ return resInq; }
-        resPred = await this.#predict(resInq.target);
-        resHist = await this.#histogram(resInq.target);
+        resPred = await this.predict(resInq.target);
+        resHist = await this.historgram(resInq.target);
         
         return {
             'success': true,
