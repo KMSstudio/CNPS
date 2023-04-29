@@ -21,7 +21,7 @@ const construct = {
     f03: (status) => {
         const charCode = status.charCodeAt(status.length-1);
         return ((charCode - 44032) % 28) ? `${status}이` : `${status}가`;
-    },
+    }
 }
 
 const errList = {
@@ -44,31 +44,32 @@ const errList = {
     }
 }
 
-function code2name(code){
-    if (code == 'cj') { return '대한통운'; }
-    else if (code == 'hj') { return '한진택배'; }
-    else if (code == 'po') { return '우체국택배'; }
-    else if (code == 'lg') { return '롯데글로벌로지스'; }
-    else { return 'none#c2n'; }
-}
-
-function num2timeZone(num){
-    switch(num) {
-        case 0: return '제1 새벽 ( 00:00~01:59 )';
-        case 1: return '제2 새벽 ( 02:00~03:59 )';
-        case 2: return '제3 새벽 ( 04:00~05:59 )';
-        case 3: return '제1 아침 ( 06:00~07:59 )';
-        case 4: return '제2 아침 ( 08:00~09:59 )';
-        case 5: return '제3 아침 ( 10:00~11:59 )';
-        case 6: return '제1 낮 ( 12:00~13:59 )';
-        case 7: return '제2 낮 ( 14:00~15:59 )';
-        case 8: return '제3 낮 ( 16:00~17:59 )';
-        case 9: return '제1 저녁 ( 18:00~19:59 )';
-        case 10: return '제2 저녁 ( 20:00~21:59 )';
-        case 11: return '제3 저녁 ( 22:00~23:59 )';
-        default: return 'none#n2tz';
+const convert = {
+    code2name: (code) => {
+        if (code == 'cj') { return '대한통운'; }
+        else if (code == 'hj') { return '한진택배'; }
+        else if (code == 'po') { return '우체국택배'; }
+        else if (code == 'lg') { return '롯데글로벌로지스'; }
+        else { return 'none#c2n'; }
+    },
+    num2timeZone: (num) => {
+        switch(num) {
+            case 0: return '제1 새벽 ( 00:00~01:59 )';
+            case 1: return '제2 새벽 ( 02:00~03:59 )';
+            case 2: return '제3 새벽 ( 04:00~05:59 )';
+            case 3: return '제1 아침 ( 06:00~07:59 )';
+            case 4: return '제2 아침 ( 08:00~09:59 )';
+            case 5: return '제3 아침 ( 10:00~11:59 )';
+            case 6: return '제1 낮 ( 12:00~13:59 )';
+            case 7: return '제2 낮 ( 14:00~15:59 )';
+            case 8: return '제3 낮 ( 16:00~17:59 )';
+            case 9: return '제1 저녁 ( 18:00~19:59 )';
+            case 10: return '제2 저녁 ( 20:00~21:59 )';
+            case 11: return '제3 저녁 ( 22:00~23:59 )';
+            default: return 'none#n2tz';
+        }
     }
-}
+};
 
 class Post{
     constructor(number, company) {
