@@ -76,14 +76,14 @@ class Post{
         this.company = company;
     }
 
-    #readFile(direcLoc) {
+    #readFileCNPS(direcLoc) {
         try{
             const mdata = fs.readFileSync(direcLoc + '/medi.json');
             this.medi = JSON.parse(mdata);
             const hdata = fs.readFileSync(direcLoc + '/hist.json');
             this.hist = JSON.parse(hdata);
         }catch(err){
-            console.log(`error occur in Post.js > #readFile. err = ${err}`);
+            console.log(`error occur in Post.js > #readFileCNPS. err = ${err}`);
             throw new Error('readFile');
         }
     }
@@ -155,7 +155,7 @@ class Post{
         if (!inqValue.length) { return errList.INQUIRY_NULL_ERR; }
         
         try {
-            this.#readFile(direcLoc);
+            this.#readFileCNPS(direcLoc);
             aimValue = this.#takeaim(inqValue);
         } catch(err) { return errList.DB_READ_FAIL; }
         if (aimValue.keyStr == 'none') { return errList.DB_SRC_FAIL; }
