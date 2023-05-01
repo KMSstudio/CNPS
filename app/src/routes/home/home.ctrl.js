@@ -5,7 +5,7 @@ const Post = require("../../models/Post");
 
 const output = {
     home: (req, res) => {
-        logger.info(`GET / ${req.socket.remoteAddress} / 200 move to home`);
+        logger.info(`GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / success / 200 move to home`);
         res.render("home/index");
     },
 };
@@ -22,13 +22,12 @@ const process = {
         const response = await post.search();
         
         if (response.success){
-            logger.info(`GET / ${req.socket.remoteAddress} / 200 search ${req.url} /success`);
+            logger.info(`GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / success / 200 ${req.url} /`);
             res.render("home/search", response);
         }
         else{
-            logger.info(`GET / ${req.socket.remoteAddress} / 200 ${req.url} / fail${response.msg}`);
+            logger.info(`GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / fail    / 200 ${req.url} / ${response.code}`);
             res.render("home/fail", response);
-            // res.redirect('/');
         }
     },
 };

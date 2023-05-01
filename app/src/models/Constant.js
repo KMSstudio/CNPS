@@ -32,13 +32,21 @@ const construct = {
         else { return `${parseInt(factor / 1440)}일 ${parseInt(factor % 1440 / 60)}시간 ${factor % 60}분` }
     },
 
-    f02: (anchor, pass) => {
+    f02: (anchor, pass75, pass95) => {
         const [dateStr, timeStr] = anchor.split(' ');
         const [year, month, day] = dateStr.split('-');
         const [hours, minutes] = timeStr.split(':');
+        const today = new Date();
         const date = new Date(parseInt(year), parseInt(month-1), parseInt(day), parseInt(hours), parseInt(minutes));
-        date.setMinutes(date.getMinutes() + pass);
-        return `${date.getDate()}일 ${date.getHours()}시 ${date.getMinutes()}분`
+        var range = '75%';
+        date.setMinutes(date.getMinutes() + pass75);
+        if ((today.getTime() - date.getTime()) / (1000*60) > 180) { 
+            date.setMinutes(date.getMinutes() + (pass95-pass75)); 
+            range = '95%';
+        }
+        return { 
+            range: range,
+            value: `${date.getMonth()+1}월 ${date.getDate()}일 ${date.getHours()}시 ${date.getMinutes()}분` };
     },
     
     f03: (status) => {
@@ -50,9 +58,9 @@ const construct = {
 const transform = {
     code2name: (code) => {
         if (code == 'cj') { return '대한통운'; }
-        else if (code == 'hj') { return '한진택배'; }
         else if (code == 'po') { return '우체국택배'; }
-        else if (code == 'lg') { return '롯데글로벌로지스'; }
+        else if (code == 'lt') { return '롯데글로벌로지스'; }
+        else if (code == 'lg') { return '로젠택배'; }
         else { return 'none#c2n'; }
     },
     num2timeZone: (num) => {

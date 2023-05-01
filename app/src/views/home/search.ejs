@@ -46,7 +46,7 @@
                 <span style='font-size:1.5em'>95%</span>가 <%= predict.p95 %><br> </p>
             <p class="con-content"> 안으로 도착했습니다. </p>
             
-            <p class="con-content"> 75%선으로 추정한 도착예정시간은 <span style='font-size:1.5em; color:#ff0'><%= predict.pred %></span> 입니다. </p>
+            <p class="con-content"> <%= predict.pred.range %>선으로 추정한 도착예정시간은 <span style='font-size:1.5em; color:#ff0'><%= predict.pred.value %></span> 입니다. </p>
         </p>
 
         <!-- inquiry result -->

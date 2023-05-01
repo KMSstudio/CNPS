@@ -111,7 +111,7 @@ class Post{
                 p50: constant.construct.f01(mediVal['50']), 
                 p75: constant.construct.f01(mediVal['75']), 
                 p95: constant.construct.f01(mediVal['95']), 
-                pred: constant.construct.f02(target.time, mediVal['75'])
+                pred: constant.construct.f02(target.time, mediVal['75'], mediVal['95'])
             };
         } catch{
             return constant.errList.SERVER_PRED_ERR;
