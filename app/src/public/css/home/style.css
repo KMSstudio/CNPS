@@ -20,107 +20,6 @@ input:focus{
     outline: none;
 }
 
-#src{
-    width:100vw;
-    max-width: 100%;
-    height:40vh;
-
-    background-color: #fff;
-    position: relative;
-
-    font-size: 10px;
-}
-
-#search-bd{
-    display: inline-flex;
-    height: 10vh;
-
-    position:absolute;
-    top:50%; left:50%;
-    transform: translate(-50%, -50%);
-}
-#search-inp{
-    display: block;
-    height: 100%;
-}
-#search-2nd{
-    display: inline-flex;
-    height: 50%;
-}
-
-#search-image{
-    height : 10vh;
-    height : -webkit-calc(10vh + 5px); /* for Chrome, Safari */
-    height :    -moz-calc(10vh + 5px); /* for Firefox */
-    height :         calc(10vh + 5px); /* for IE */
-
-    margin-right: 5px;
-    margin-bottom: 5px;
-
-    border-width: 2px;
-    border-style: solid;
-    border-color: #000;
-    box-sizing: border-box;
-}
-
-#number{
-    width : 40vw;
-    width : -webkit-calc(40vw + 5px); /* for Chrome, Safari */
-    width :    -moz-calc(40vw + 5px); /* for Firefox */
-    width :         calc(40vw + 5px); /* for IE */
-    height:50%;
-
-    background-color: #fff;
-    color: #000;
-
-    margin-right: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-
-    border-width: 2px;
-    border-style: solid;
-    border-color: #000;
-    
-    font-size: 2.4em;
-    box-sizing: border-box;
-}
-
-#company{
-    width:30vw; height:100%;
-    background-color: #fff;
-    color: #000;
-
-    margin-right: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-
-    border-width: 2px;
-    border-style: solid;
-    border-color: #000;
-    
-    font-size: 2.4em;
-    box-sizing: border-box;
-}
-
-#submit{
-    width: 10vw; height:100%;
-    background-color: #fff;
-    color: #000;
-    margin-right: 5px;
-    margin-bottom: 5px;
-
-    border-width: 2px;
-    border-style: solid;
-    border-color: #000;
-    
-    font-size: 2.4em;
-    box-sizing: border-box;
-}
-#submit:hover{
-    background-color: #ff0;
-    color: #000;
-}
-
 #res{
     width:100vw;
     max-width: 100%;
@@ -134,6 +33,7 @@ input:focus{
 }
 
 .paragraph{
+    width: 60vw;
     margin: 10vh auto 5vh;
 
     background-color: #000;

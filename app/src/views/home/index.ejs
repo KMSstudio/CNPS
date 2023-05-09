@@ -11,24 +11,7 @@
     <title>CNPS</title>
 </head>
 <body>
-    <div id="src">
-        <div id="search-bd">
-            <a href="/"><img src="/img/CNPS-white.jpg" id="search-image"></a>
-            <div id="search-inp">
-                <input type="number" autocomplete="off" placeholder="운송장번호" name="number" id="number"><br>
-                <div id="search-2nd">
-                    <select name="company" id="company">
-                        <option value="none" selected hidden>택배사선택</option>
-                        <option value="po">우체국택배</option>
-                        <option value="cj">cj대한통운</option>
-                        <option value="lt">롯데택배</option>
-                        <option value="lg">로젠택배</option>
-                    </select>
-                    <button type="button" id="submit"><img src="/img/search.png" style="height:60%; margin:auto" alt="검색"></button>
-                </div>
-            </div>
-        </div>
-    </div> <!-- /#src -->
+    <%-include('./components/src.ejs')%> <!-- /#src -->
     <div id="res">
         <p class="paragraph">
             <h1 class="con-title"> CNPS: 카노푸스</h1>
