@@ -23,6 +23,15 @@ const errList = {
     SERVER_PRED_ERR: {success: false, msg: '서버에서 배송도착시간 통계를 조회하는 과정에 알 수 없는 에러가 발생하였습니다.',
         code: '501: SERVER_PREDICT_ERR',
         sol: ['개발자에게 메일을 보내 부족한 데이터 보충을 요청해주세요. 개발자 메일주소는 tomskang@naver.com입니다.']
+    },
+    SERVER_LOG_ACS_ERR: {success: false, msg: '서버에서 로그를 가져올 수 없습니다.',
+        code: '502: SERVER_LOG_ACS_ERR',
+        sol: []
+    },
+
+    TYPE_ERR: {success: false, msg: '입력값의 타입이 잘못되었습니다.',
+        code: '201: TYPE_ERR',
+        sol: []
     }
 }
 

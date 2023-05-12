@@ -22,7 +22,7 @@ class Post{
         }
     }
 
-    takeaim(inqValue) {
+    takeAim(inqValue) {
         try{
             const tempArr1 = [3, 0, 0, 0, 0, 1, 2]; // Should be improved
             const tempArr2 = ['주중', '금요일', '토요일', '일요일'];
@@ -60,7 +60,7 @@ class Post{
             }
             return {'keyStr': 'none'};
         }catch(err){
-            console.log(`error occur in Post.js > takeaim. err = ${err}`);
+            console.log(`error occur in Post.js > takeAim. err = ${err}`);
             throw new Error('aimVal');
         }
     }
@@ -90,7 +90,7 @@ class Post{
         
         try {
             this.readFile(direcLoc);
-            aimValue = this.takeaim(inqValue);
+            aimValue = this.takeAim(inqValue);
         } catch(err) { return constant.errList.DB_READ_FAIL; }
         if (aimValue.keyStr == 'none') { return constant.errList.DB_SRC_FAIL; }
 
