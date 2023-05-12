@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/home/style.css">
+    <link rel="stylesheet" href="/css/home/api.css">
+    <link rel="icon" href="/img/favicon.ico">
+    <title>CNPS</title>
+</head>
+<body>
+    <div id="res" style="min-height: 100vh;">
+        <p class="paragraph" id="predict">
+            <h1 class="con-title"> CNPS: show log </h1>
+            <hr class="con-line">
+            <% for (var i=0;i<log.length;i++) { %>
+                <p class="api-log-line"><span style="color:#ff0"><%=log[i].split(']')[0]%>]</span><%=log[i].split(']')[1]%></p>
+            <% } %>
+        </p>
+    </div>
+</body>
+</html>

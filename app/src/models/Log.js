@@ -28,7 +28,9 @@ const inquiry = {
                 fileName: `./logs/${date}.log`
             };
         } catch(err) {
-            return constant.errList.SERVER_LOG_ACS_ERR;
+            let result = Object.assign({}, constant.errList.SERVER_LOG_ACS_ERR);
+            result.fileName = `./logs/${date}.log`;
+            return result;
         }
     },
 
@@ -48,10 +50,12 @@ const inquiry = {
         
         for(var i = 0;i < option.num; i++){
             var fileName = this.getLogFileName(option.start + i);
-            if (!fileName.success) { continue; }
+            if (!fileName.success) { result.push(`[CNPS] cannot access ${fileName.fileName}`); continue; }
             try{ data = fs.readFileSync(fileName.fileName, "utf-8"); }
             catch(err) { return constant.errList.SERVER_LOG_ACS_ERR; }
             data = data.replace('\r', '').split('\n');
+            if(data.length <= 1) { result.push(`[CNPS] file ${fileName.fileName} is empty`); continue; }
+            data = data.slice(0, data.length-1);
 
             result.push(...data);
         }

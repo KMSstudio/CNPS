@@ -13,7 +13,7 @@ const output = {
 
     api: (req, res) => {
         logger.info(`API GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / success / 200 api home`);
-        res.render("home/api");
+        res.render("home/api/api");
     }
 };
 
@@ -30,7 +30,7 @@ const download = {
         const response = log.getLogFileName(pre);
         if(!response.success) { res.json(response); return; }
         logger.info(`GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / DOWNLOAD ${response.success? 'success' : 'fail'} / 200 ${req.url} /`);
-        res.download(response.fileName, "logtoday.txt");
+        res.download(response.fileName, `${response.fileName.split('.').join('')}.txt`);
     }
 }
 
@@ -66,13 +66,13 @@ const api = {
     makesrc: async(req, res) => {
         const response = await getres(req);
         if(response.hasOwnProperty('target') && response.target.hasOwnProperty('statusN')) { delete response.target.statusN; }
-        logger.info(`API GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / API ${response.success? 'success' : 'fail'} / 200 ${req.url} /`);
+        logger.info(`API GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / ${response.success? 'success' : 'fail'} / 200 ${req.url} /`);
         res.send(response);
     },
     makemsg: async(req, res) => {
         const response = await getres(req);
         const company = new URLSearchParams(req.url.slice(req.url.indexOf('?'))).get('company');
-        logger.info(`API GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / API ${response.success? 'success' : 'fail'} / 200 ${req.url} /`);
+        logger.info(`API GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / ${response.success? 'success' : 'fail'} / 200 ${req.url} /`);
         if (response.success){
             res.json({
                 success: true,
@@ -102,7 +102,10 @@ const api = {
         if(params.has("num")) { option.num = params.get("num"); }
 
         response = log.getLog(option);
-        res.json(response);
+        logger.info(`API GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / ${response.success? 'success' : 'fail'} / 200 ${req.url} /`);
+
+        if(response.success) { res.render("home/api/show-log", response); }
+        else { res.render("home/fail", response); }
     }
 }
 

@@ -30,7 +30,7 @@ api문서의 css적용을 위한 파일.
 
 #api-log-wrap{
     width: 50vw;
-    margin: 1% auto 1%;
+    margin: 1% auto;
 
     display: flex;
     flex-direction: row;
@@ -38,4 +38,13 @@ api문서의 css적용을 위한 파일.
 #api-log-wrap > input{
     font-size: 1em;
     flex-grow: 1;
+}
+.api-log-line{
+    width: 50vw;
+
+    font-size: 1em;
+    margin: 1% auto;
+
+    color: #fff;
+    background-color: #000;
 }
