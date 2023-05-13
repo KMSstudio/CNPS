@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 //routing
-const home = require("./src/routes/home"); 
+const home = require("./src/routes"); 
 
 //app setting
 app.set("views", "./src/views");

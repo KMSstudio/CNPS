@@ -17,7 +17,6 @@ class Post{
             const hdata = fs.readFileSync(direcLoc + '/hist.json');
             this.hist = JSON.parse(hdata);
         }catch(err){
-            console.log(`error occur in Post.js > readFile. err = ${err}`);
             throw new Error('readFile');
         }
     }
@@ -93,6 +92,13 @@ class Post{
             aimValue = this.takeAim(inqValue);
         } catch(err) { return constant.errList.DB_READ_FAIL; }
         if (aimValue.keyStr == 'none') { return constant.errList.DB_SRC_FAIL; }
+
+        if(!fs.existsSync(direcLoc+'/invoice.txt', fs.constants.W_OK)) { fs.appendFileSync(direcLoc+'/invoice.txt', ''); }
+        try{
+            const invoice = fs.readFileSync(direcLoc+'/invoice.txt', "utf-8").split(';');
+            invoice.push(this.number);
+            fs.writeFileSync(direcLoc+'/invoice.txt', invoice.join(';'));
+        } catch(err) { ; }
 
         return {
             success: true,

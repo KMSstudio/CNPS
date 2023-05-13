@@ -1,19 +1,19 @@
 "use strict";
 
 const { exceptions } = require("winston");
-const logger = require("../../config/logger");
-const log = require("../../models/Log");
-const Post = require("../../models/Post");
+const logger = require("../config/logger");
+const log = require("../models/Log");
+const Post = require("../models/Post");
 
 const output = {
     home: (req, res) => {
         logger.info(`GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / success / 200 move to home`);
-        res.render("home/index");
+        res.render("index");
     },
 
     api: (req, res) => {
         logger.info(`API GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / success / 200 api home`);
-        res.render("home/api/api");
+        res.render("api/api");
     }
 };
 
@@ -53,11 +53,11 @@ const process = {
         
         if (response.success){
             logger.info(`GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / success / 200 ${req.url} /`);
-            res.render("home/search", response);
+            res.render("search", response);
         }
         else{
             logger.info(`GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / fail    / 200 ${req.url} / ${response.code}`);
-            res.render("home/fail", response);
+            res.render("fail", response);
         }
     },
 };
@@ -104,8 +104,8 @@ const api = {
         response = log.getLog(option);
         logger.info(`API GET / ${String(req.socket.remoteAddress).padEnd(16, ' ')} / ${response.success? 'success' : 'fail'} / 200 ${req.url} /`);
 
-        if(response.success) { res.render("home/api/show-log", response); }
-        else { res.render("home/fail", response); }
+        if(response.success) { res.render("api/show-log", response); }
+        else { res.render("fail", response); }
     }
 }
 
