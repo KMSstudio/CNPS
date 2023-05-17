@@ -1,0 +1,30 @@
+<div id="src">
+    <link rel="stylesheet" href="/css/src.css">
+    <div id="search-bd">
+        <a href="/"><img src="/img/CNPS-white.jpg" id="search-image"></a>
+        <div id="search-inp">
+            <input type="number" autocomplete="off" placeholder="운송장번호" name="number" id="number"><br>
+            <div id="search-2nd">
+                <select name="company" id="company">
+                    <option value="none" selected hidden>택배사선택</option>
+                    <option value="po">우체국택배</option>
+                    <option value="cj">cj대한통운</option>
+                    <option value="lt">롯데택배</option>
+                    <option value="lg">로젠택배</option>
+                </select>
+                <button type="button" id="submit"><img src="/img/search.png" style="height:60%; margin:auto" alt="검색"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        submit.addEventListener("click", () => {
+            const number = document.querySelector("#number");
+            const company = document.querySelector("#company");
+            const submit = document.querySelector("#submit");
+            number.value = String(number.value).replace('-', '');
+            if (company.value == 'none') { alert('운송사명을 선택해주세요.') }
+            else if (number.value == '') { alert('올바른 운송장번호를 입력해주세요') }
+            else {location.href = `/search?number=${number.value}&company=${company.value}`;}
+        });
+    </script>
+</div> <!-- /#src -->

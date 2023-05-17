@@ -1,0 +1,173 @@
+*{margin:0;padding:0;font-family: sans-serif;}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    -moz-apperance: none;
+    -webkit-appearance: none;
+    margin:0;
+}
+
+::-moz-selection{
+    background: #fff;
+    color: #000;
+}
+::selection{
+    background: #fff;
+    color: #000;
+}
+input:focus{
+    outline: none;
+}
+
+#res{
+    width:100vw;
+    max-width: 100%;
+    overflow: auto;
+    height: fit-content;
+    min-height: 60vh;
+    
+    background-color:#000;
+
+    font-size: 21px;
+}
+
+.paragraph{
+    width: 60vw;
+    margin: 10vh auto 5vh;
+
+    background-color: #000;
+    color: #fff;
+}
+
+.con-title{
+    width: 50vw;
+    margin: 2% auto 1%;
+
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.con-line{
+    border: solid 1px #fff;
+    
+    width: 55vw;
+    margin: 0% auto;
+}
+
+.con-content{
+    width: 50vw;
+    margin: 2% auto 1%;
+
+    color: #fff;
+    font-size: 1em;
+}
+
+#inquiry-table{
+    width: 50vw;
+    margin: 2% auto 1%;
+
+    color: #fff;
+
+    border-collapse: collapse;
+}
+
+.con-scope{
+    font-size: 1em;
+    font-weight: bold;
+
+    padding: 5px 10px;
+    text-align: left;
+    color: #fff;
+}
+
+.con-table{
+    font-size: 1em;
+    font-weight: normal;
+
+    padding: 5px 10px;
+    text-align: left;
+    color: #fff;
+}
+
+#inquiry-hist{
+    display: flex;
+    height: 40vh;
+    width: 50vw;
+    margin: 2% auto 1%;
+    background-color: #000;
+
+    color: #fff;
+}
+
+.con-bar{
+    background-color: #000;
+    flex-grow: 1;
+
+    align-self: flex-end;
+    
+    border: solid 1px #fff;
+    background-color: #fff;
+}
+
+.con-axis{
+    display: flex;
+    height: auto;
+    width: 50vw;
+    margin: 0% auto 1%;
+    background-color: #000;
+
+    justify-content: space-between;
+
+    color: #fff;
+    font-size: 0.8em;
+}
+
+#sponsor-wrap{
+    height: auto;
+    width: 50vw;
+    background-color: #000;
+    margin: 2% auto 1%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.con-spon{
+    height: 20vh;
+    width: 15vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    cursor: pointer;
+
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #000;
+}
+.con-spon:hover{
+    background-color: #111;
+    color: #fff;
+}
+
+.con-spon p{
+    text-align: center;
+    margin: 5% auto;
+}
+
+#foot-image{
+    height : 3.2em;
+
+    margin-right: 1em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+    box-sizing: border-box;
+    
+    float:left
+}

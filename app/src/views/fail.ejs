@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/img/favicon.ico">
+    <script>
+        window.onload = function() {
+            document.querySelector("#res").scrollIntoView({block:'start', behavior: 'smooth'});
+        }
+    </script>
+    <title>CNPS</title>
+</head>
+<body>
+    <%-include('./components/src.ejs')%> <!-- /#src -->
+    <div id="res">
+        <p class="paragraph" id="status">
+            <h1 class="con-title"> 에러! </h1>
+            <hr class="con-line">
+            <p class="con-content">
+                <%=code%><br><%=msg%>
+            </p>
+        </p>
+        <p class="paragraph" id="predict">
+            <h1 class="con-title"> 솔루션: </h1>
+            <hr class="con-line">
+            <% for (var i=0;i<sol.length;i++) { %>
+                <p class="con-content"><%=sol[i]%></p>
+            <% } %>
+        </p>
+        <p class="paragraph" style="background-color: #ff0; width:50vw">
+            <hr class="con-line">
+            <div class="con-content">
+                <a href="/"><img src="/img/CNPS-black.jpg" id="foot-image"></a>
+                <p class="con-content" style="font-size:0.8em;">
+                    Canopus, statistics-based delivery survice. <br>
+                    Made by Dongtanjoongang high school MS Kang.<br>
+                    E-mail tomskang@naver.com
+                </p>
+            </div>
+        </p>
+    </div>
+</body>
+</html>

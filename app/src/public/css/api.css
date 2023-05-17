@@ -1,0 +1,50 @@
+/* 
+Made by MS Kang. 2023.
+
+api문서의 css적용을 위한 파일.
+단, style.css와 src.css에 존재하는 스타일은 제함. 
+*/
+
+.api-button{
+    height: 5vh;
+    width: 50vw;
+    margin: 1% auto 1%;
+
+    font-size: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    cursor: pointer;
+
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #000;
+}
+.api-button:hover{
+    background-color: #111;
+    color: #fff;
+}
+
+#api-log-wrap{
+    width: 50vw;
+    margin: 1% auto;
+
+    display: flex;
+    flex-direction: row;
+}
+#api-log-wrap > input{
+    font-size: 1em;
+    flex-grow: 1;
+}
+.api-log-line{
+    width: 50vw;
+
+    font-size: 1em;
+    margin: 1% auto;
+
+    color: #fff;
+    background-color: #000;
+}
