@@ -68,6 +68,34 @@ const inquiry = {
         }
         inquiry.reverse();
         return inquiry;
+    },
+    hj: async (invoice) => {
+        const html = await axios.get(`https://www.hanjin.com/kor/CMS/DeliveryMgr/WaybillResult.do?mCode=MN038&schLang=KR&wblnumText2=${invoice}`, {
+            responseType: 'arraybuffer',
+        });
+        
+        const content = iconv.decode(html.data, 'utf-8').toString();
+        const tableList = content.split('tbody>')[3].split('<tr');
+        var inquiry = []
+    
+        for (var i = 1;i < tableList.length;i++){
+            const values = tableList[i].split('<td').slice(1, 6);
+            var status = '이동'
+            if(values[3].includes('접수')) { status = '접수'; }
+            else if (values[3].includes('입고')) { status = '입고'; }
+            else if (values[3].includes('준비')) { status = '배송준비'; }
+            else if (values[3].includes('출발')) { status = '배송출발'; }
+            else if (values[3].includes('완료')) { status = '배송완료'; }
+            
+            inquiry.push({
+                'location': values[2].slice(values[2].indexOf('>')+1, values[2].indexOf('</td>')), 
+                'status': status,
+                'time': values[0].slice(values[0].indexOf('>')+1, values[0].indexOf('</td>')) + ' ' + values[1].slice(values[1].indexOf('>')+1, values[1].indexOf('</td>'))
+            });
+        }
+        inquiry.reverse();
+        console.log(inquiry);
+        return inquiry;
     }
 }
 

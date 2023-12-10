@@ -97,7 +97,7 @@ class Post{
         try{
             const invoice = fs.readFileSync(direcLoc+'/invoice.txt', "utf-8").split(';');
             invoice.push(this.number);
-            fs.writeFileSync(direcLoc+'/invoice.txt', invoice.join(';'));
+            fs.writeFileSync(direcLoc+'/invoice.txt', invoice.join('\n'));
         } catch(err) { ; }
 
         return {
