@@ -23,7 +23,7 @@ class Post{
 
     takeAim(inqValue) {
         try{
-            const tempArr1 = [3, 0, 0, 0, 0, 1, 2]; // Should be improved
+            const tempArr1 = [3, 0, 0, 0, 0, 1, 2];
             const tempArr2 = ['주중', '금요일', '토요일', '일요일'];
             // search class A
             for(var i = 0;i < inqValue.length;i++){

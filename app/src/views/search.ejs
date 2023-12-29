@@ -16,8 +16,7 @@
 <body>
     <%-include('./components/src.ejs')%> <!-- /#src -->
     <div id="res">
-        <!-- statistical prediction -->
-        <p class="paragraph">
+        <div id="statistical-prediction" class="paragraph">
             <h1 class="con-title"> 배송도착시간 통계 </h1>
             <hr class="con-line">
             <p class="con-content"> 고객님의 택배가 <span style='color:#ff0'><%=target.location%></span>에 있습니다.<br>
@@ -30,10 +29,8 @@
             <p class="con-content"> 안으로 도착했습니다. </p>
             
             <p class="con-content"> <%= predict.pred.range %>선으로 추정한 도착예정시간은 <span style='font-size:1.5em; color:#ff0'><%= predict.pred.value %></span> 입니다. </p>
-        </p>
-
-        <!-- inquiry result -->
-        <p class="paragraph">
+        </div>
+        <div id="inquiry-result" class="paragraph">
             <h1 class="con-title"> 배송조회 </h1>
             <hr class="con-line">
             <p class="con-content"><%=input.company%> 운송장번호 <%=input.number%>의 조회결과입니다. </p>
@@ -51,10 +48,8 @@
                     </tr>
                 <% } %>
             </table>
-        </p>
-
-        <!-- histogram -->
-        <p class="paragraph">
+        </div>
+        <div id="histogram" class="paragraph">
             <h1 class="con-title"> 상세통계 </h1>
             <hr class="con-line">
             <p class="con-content"> <%=target.location%> <%=target.timeZ%> <%=target.status%>택배<br>
@@ -73,13 +68,12 @@
                     <div><%=histogram.spot[i]%></div>
                 <% } %>
             </div>
-        </p>
+        </div>
         
-        <!-- support us -->
-        <p class="paragraph">
+        <div id="support-us" class="paragraph">
             <h1 class="con-title"> 지원하기 </h1>
             <hr class="con-line">
-            <p class="con-content"> 이 서비스를 만든 자본이 간절한 고3에게 <br> <span style='font-size:0.8em'>국민은행 923801-00-058488</span> </p>
+            <p class="con-content"> 이 서비스를 만든 고3에게 <br> <span style='font-size:0.8em'>국민은행 923801-00-058488</span> </p>
             
             <div id="sponsor-wrap">
                 <div class="con-spon" onclick=" window.open('https://toss.me/serius/2900') ">
@@ -95,19 +89,8 @@
                     <p>10,500 &#8361;</p>
                 </div>
             </div>
-        </p>
-
-        <p class="paragraph" style="background-color: #ff0; width:50vw">
-            <hr class="con-line">
-            <div class="con-content">
-                <a href="/"><img src="/img/CNPS-black.jpg" id="foot-image"></a>
-                <p class="con-content" style="font-size:0.8em;">
-                    Canopus, statistics-based delivery survice. <br>
-                    Made by Dongtanjoongang high school MS Kang.<br>
-                    E-mail tomskang@naver.com
-                </p>
-            </div>
-        </p>
+        </div>
+        <%-include('./components/finish.ejs')%>
     </div> <!-- /#res -->
 </body>
 </html>
