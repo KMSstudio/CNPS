@@ -17,20 +17,20 @@
 <body>
     <%-include('./components/src.ejs')%> <!-- /#src -->
     <div id="res">
-        <p class="paragraph" id="status">
+        <div id="error-window" class="paragraph" id="status">
             <h1 class="con-title"> 에러! </h1>
             <hr class="con-line">
             <p class="con-content">
                 <%=code%><br><%=msg%>
             </p>
-        </p>
-        <p class="paragraph" id="predict">
+        </div>
+        <div id="solution-window" class="paragraph" id="predict">
             <h1 class="con-title"> 솔루션: </h1>
             <hr class="con-line">
             <% for (var i=0;i<sol.length;i++) { %>
                 <p class="con-content"><%=sol[i]%></p>
             <% } %>
-        </p>
+        </div>
         <%-include('./components/finish.ejs')%>
     </div>
 </body>
